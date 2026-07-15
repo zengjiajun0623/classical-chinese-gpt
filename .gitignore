@@ -1,0 +1,11 @@
+# raw and converted corpus (re-download via README)
+*.txt
+
+# generated artifacts and caches
+*.bin
+merges.json
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
