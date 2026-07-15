@@ -3,6 +3,7 @@
 
 # generated artifacts and caches
 *.bin
+*.pt
 merges.json
 __pycache__/
 *.pyc

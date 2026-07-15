@@ -1,55 +1,55 @@
 # classical-chinese-gpt
 
-A hands-on project to understand how large language models are built, by training a tiny one from scratch on classical Chinese literature.
+A hands-on project to understand how large language models are built, by training tiny ones from scratch on classical Chinese literature. It walks the full pretraining pipeline on a laptop: tokenize, train, watch it learn, then mix sources and steer the output style with control tokens.
 
-The training corpus is the simplified-Chinese text of the Four Great Classical Novels:
+## The corpus
 
-- 红楼梦 (Dream of the Red Chamber)
-- 三国演义 (Romance of the Three Kingdoms)
-- 水浒传 (Water Margin)
-- 西游记 (Journey to the West)
+Simplified-Chinese text of nine public-domain works from Project Gutenberg, spanning three registers:
 
-All four are public-domain texts from Project Gutenberg. About 2.9 million characters in total, drawn from roughly 5,777 distinct characters.
+- Ming-Qing vernacular novels: 红楼梦, 三国演义, 水浒传, 西游记, 儒林外史, 封神演义
+- Classical 文言: 聊斋志异
+- Modern vernacular: 鲁迅 (呐喊, 彷徨)
 
-## What is here
+About 4.4 million characters drawn from roughly 6,700 distinct characters. Character-level tokenization (no sub-word merges needed for Chinese).
 
-- `train_bigram.py` is a minimal baseline. It predicts the next character from only the current one. It trains in seconds and writes gibberish, but it shows the entire training loop (guess, measure the loss, adjust the numbers) with nothing hidden.
-- `train_gpt.py` is a small character-level GPT: token and position embeddings, multi-head self-attention, and stacked transformer blocks. It runs the same training loop as the baseline, with attention added so the model can use context instead of a single character.
+## The scripts
+
+- `train_bigram.py` is a minimal baseline that predicts the next character from only the current one. It shows the full training loop (guess, measure loss, adjust) with nothing hidden.
+- `train_gpt.py` is a small character-level GPT (multi-head self-attention, stacked transformer blocks) trained on the four core novels.
+- `build_corpus2.py` builds the training corpus from all nine sources, tagging every short passage with its source so the model can learn to condition on it. It writes `train.txt` and `val.txt`, splitting each source 90/10 so validation represents every register.
+- `train_tags.py` trains the GPT on the tagged corpus, with a fused-attention, GPU-resident data path for speed. Saves `model_tags.pt`.
+- `generate.py` loads the trained model and "summons" a style by seeding with a source tag, for example `=== 鲁迅 ===`. It uses temperature and tag-banning to keep the chosen style locked.
 
 ## Setup
 
-Requires Python 3. The scripts use Apple Silicon's `mps` GPU backend; change the `device` line to `cpu` if you are not on an Apple Silicon Mac.
-
-Install dependencies:
+Requires Python 3 and PyTorch. The scripts use Apple Silicon's `mps` GPU backend; change the `device` line to `cpu` otherwise.
 
     python3 -m pip install torch
     brew install opencc
 
-Download the four novels (traditional Chinese) from Project Gutenberg:
+Download the nine texts (traditional Chinese) and convert them to simplified:
 
     curl -L https://www.gutenberg.org/cache/epub/24264/pg24264.txt -o hongloumeng.txt
     curl -L https://www.gutenberg.org/cache/epub/23950/pg23950.txt -o sanguo.txt
     curl -L https://www.gutenberg.org/cache/epub/23863/pg23863.txt -o shuihu.txt
     curl -L https://www.gutenberg.org/cache/epub/23962/pg23962.txt -o xiyouji.txt
+    curl -L https://www.gutenberg.org/cache/epub/24032/pg24032.txt -o rulin.txt
+    curl -L https://www.gutenberg.org/cache/epub/23910/pg23910.txt -o fengshen.txt
+    curl -L https://www.gutenberg.org/cache/epub/51828/pg51828.txt -o liaozhai.txt
+    curl -L https://www.gutenberg.org/cache/epub/27166/pg27166.txt -o nahan.txt
+    curl -L https://www.gutenberg.org/cache/epub/24042/pg24042.txt -o panghuang.txt
 
-Convert traditional to simplified Chinese:
-
-    opencc -c t2s -i hongloumeng.txt -o hongloumeng_s.txt
-    opencc -c t2s -i sanguo.txt -o sanguo_s.txt
-    opencc -c t2s -i shuihu.txt -o shuihu_s.txt
-    opencc -c t2s -i xiyouji.txt -o xiyouji_s.txt
+    for f in hongloumeng sanguo shuihu xiyouji rulin fengshen liaozhai nahan panghuang; do
+        opencc -c t2s -i $f.txt -o ${f}_s.txt
+    done
 
 ## Run
 
-    python3 train_bigram.py     # the baseline
-    python3 train_gpt.py        # the transformer
-
-Each script prints training and validation loss as it goes, with sample text so you can watch the writing improve.
-
-## The dials
-
-The hyperparameters at the top of `train_gpt.py` (context window, embedding size, number of attention heads, number of layers, learning rate, iterations) are the knobs that set how large and capable the model is. They are the same knobs used to train frontier models, set to laptop scale. Turn them up for better samples at the cost of longer training.
+    python3 train_gpt.py       # the single-corpus transformer
+    python3 build_corpus2.py   # build the tagged multi-source corpus
+    python3 train_tags.py      # train with source conditioning
+    python3 generate.py        # summon a style by its tag
 
 ## Notes
 
-The raw and converted text files are not committed. Run the setup steps above to reproduce them locally.
+Raw and converted text files, and trained model checkpoints, are not committed. Reproduce them with the steps above.
