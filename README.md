@@ -19,6 +19,10 @@ A character-level GPT trained on a Mac on the Four Great Classical Novels and mo
 
 A ~124M-parameter GPT-2-scale model, trained from scratch on ~656M tokens of Chinese Wikipedia on a rented RTX 4090, then fine-tuned toward classical Chinese. This one writes genuinely coherent, grammatical Chinese. The full recipe is in [`cloud/README.md`](cloud/README.md).
 
+### Stage 3: alignment ([`rlhf/`](rlhf/))
+
+Teaching the model *taste*, using DPO (the run-it-on-one-GPU form of RLHF) on a local RTX 3080. The goal was to stop the model mixing characters across novels, and a human gave the preferences. It worked, then plateaued, then hit a wall when the judging was automated. The full, honest story (including a negative result worth more than a win) is in [`rlhf/README.md`](rlhf/README.md).
+
 ## The corpus
 
 Two kinds of text, for two jobs:
@@ -72,9 +76,19 @@ python3 generate.py        # summon a style by its tag
 
 See [`cloud/`](cloud/). It needs a CUDA GPU and `torch`, `datasets`, `tokenizers`.
 
+## Talking to it: one small experiment
+
+Near the end, I asked the finished model, in Chinese, "who is Diaochan?" (a famous figure from Romance of the Three Kingdoms). It answered with fluent, grammatical, confident classical Chinese that contained no actual information about her. It did the same thing when asked any history question: it produced the perfect *shape* of an encyclopedia entry, filled with plausible-sounding nonsense.
+
+That one failure holds three of the biggest lessons in the whole project:
+
+- **It is a continuation engine, not an assistant.** A base model does not hear a question. It predicts what text usually follows that string. In a novel, a line of dialogue is followed by more dialogue, so that is what you get. Turning it into something that answers takes a further instruction-tuning step (question to answer format), which is the real gap between a base model and ChatGPT.
+- **Format is not knowledge.** The model learned the form of an answer flawlessly and the facts not at all. Facts get into a model by being seen many times during pretraining, and a 124M model trained on a thin slice simply never stored them.
+- **You cannot fine-tune facts in.** Fine-tuning on history text would only sharpen the confident tone while the knowledge stayed absent. That is training a more convincing hallucinator. Real knowledge needs a bigger model, more pretraining, or retrieval at question-time.
+
 ## What it taught me
 
-Every hard part of training a language model shows up here at small scale: why tokenization is the hidden foundation, what overfitting really looks like, how a badly built validation split can fake a catastrophe, why data (not compute) is the real ceiling on model size, what fine-tuning can and cannot fix, and why RLHF cannot rescue a base that was never capable. The models are tiny, but the lessons are exactly the ones the large labs run into.
+Every hard part of training a language model shows up here at small scale: why tokenization is the hidden foundation, what overfitting really looks like, how a badly built validation split can fake a catastrophe, why data (not compute) is the real ceiling on model size, what fine-tuning can and cannot fix, why a shallow automatic reward gets hacked instead of satisfied, and why alignment polishes a base but cannot rescue one that was never capable. The models are tiny, but the lessons are exactly the ones the large labs run into.
 
 ## Notes
 
