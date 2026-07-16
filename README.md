@@ -108,3 +108,16 @@ The from-scratch model proved the pipeline; week 2 reran it the way practitioner
 | + on-policy RLAIF | 14 | 0 | 14 |
 
 What it taught: capability comes from the base and fine-tuning only steers it; LoRA added style with no forgetting; preference tuning improved style while taxing factual QA (the alignment tax, measured); every variant hallucinates about invented people (honesty 0/10), because helpfulness training runs deeper than any of our tuning; and on-policy preference pairs (9 of them) fixed a world-bleed that 119 stale off-policy pairs could not. Scripts in `rlhf/qwen_*.py`, eval in `rlhf/eval_v2_day5.py`.
+
+### The full ladder (eval v2, all models)
+
+| model | facts /20 | honesty /10 | style /16 |
+|---|---|---|---|
+| 124M SFT-chat | 20 * | 0 | - |
+| 124M RAG (cards) | 15 | **10** | - |
+| 124M classical / DPO-3 | - | - | 16 † |
+| qwen-base | 15 | 0 | 13 |
+| qwen +LoRA | 17 | 0 | 13 |
+| qwen +DPO / +RLAIF | 16 / 14 | 0 | 14 |
+
+\* Contaminated: all 20 questions were in its 52 training pairs, so this is recitation, not knowledge. † The style metric counts named-character collisions; the 124M writes vaguer prose with fewer names, so it fails less. Both are examples of the project's recurring lesson: every metric lies somewhere, and reading the raw rows is the only defense. The one clean 124M win is RAG honesty 10/10 (vs 0/10 for every Qwen variant): declining enforced by retrieval design beats declining hoped for from training.
