@@ -115,7 +115,18 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--mode", choices=["closed", "incontext", "adapter"], required=True)
     ap.add_argument("--adapter", default=None)
+    ap.add_argument("--questions", default=None,
+                    help="JSON file with {facts:[[q,[kw..]]..], honesty:[q..], general:[[q,[kw..]]..]}")
     args = ap.parse_args()
+
+    global FACTS, HONESTY, GENERAL
+    if args.questions:
+        qs = json.load(open(args.questions, encoding="utf-8"))
+        FACTS = [(q, kws) for q, kws in qs["facts"]]
+        HONESTY = qs["honesty"]
+        GENERAL = [(q, kws) for q, kws in qs["general"]]
+        print(f"(external questions: {os.path.basename(args.questions)}: "
+              f"{len(FACTS)} facts, {len(HONESTY)} honesty)", flush=True)
 
     tok, model = load(args.adapter if args.mode == "adapter" else None)
     doccache = None

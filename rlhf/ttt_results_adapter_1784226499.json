@@ -1,0 +1,231 @@
+{
+ "summary": {
+  "mode": "adapter:qwen_ttt5_p1",
+  "facts": "11/20",
+  "honesty": "2/4",
+  "general": "3/3"
+ },
+ "results": [
+  {
+   "type": "fact",
+   "q": "In the Ethereum Foundation Mandate, what does the acronym CROPS stand for?",
+   "a": "CROPS stands for Censorship Resistance, Open Source and Free (as in Freedom), Privacy, and Security. These properties must remain, as an indivisible whole, the sine qua non of all Ethereum's development priorities, and cannot be displaced.",
+   "hits": [
+    "censorship resistance",
+    "open source",
+    "privacy",
+    "security"
+   ],
+   "ok": true
+  },
+  {
+   "type": "fact",
+   "q": "What is the 'walkaway test' that the Mandate names as the Foundation's ultimate goal for Ethereum?",
+   "a": "The walkaway test: Ethereum's protocol and core application layers become robust and trustless enough that they would continue to reliably function and evolve even if the Foundation and today's core developers disappeared tomorrow.",
+   "hits": [
+    "core developers",
+    "disappear",
+    "function"
+   ],
+   "ok": true
+  },
+  {
+   "type": "fact",
+   "q": "According to Chapter I of the Mandate, what was Ethereum's first application?",
+   "a": "Money was the first application: it requires coordination (others must recognize the asset and the blockchain as a living registry) and self-sovereignty (losses from inflation, freezing, or expropriation are so high). Ether is a store of value and money that also happens to be an application.",
+   "hits": [
+    "money"
+   ],
+   "ok": true
+  },
+  {
+   "type": "fact",
+   "q": "Chapter I says the 'armamentarium of freedom' was missing two vital tools. What are they?",
+   "a": "Two vital tools missing from the armamentarium of freedom: self-sovereign computation, and the computational ability to coordinate at scale without violating anyone else's self-sovereignty.",
+   "hits": [
+    "self-sovereign",
+    "computation",
+    "coordinate",
+    "scale"
+   ],
+   "ok": true
+  },
+  {
+   "type": "fact",
+   "q": "The Mandate says Ethereum is 'humanity's common computational substrate' that anyone can interact with in three ways. What are the three adverbs it uses?",
+   "a": "'The World Computer' means Ethereum is humanity's common computational substrate that anyone can interact with trustlessly, permissionlessly, and persistently.",
+   "hits": [
+    "trustless",
+    "permissionless",
+    "persistent"
+   ],
+   "ok": true
+  },
+  {
+   "type": "fact",
+   "q": "The Mandate's first fundamental principle states that a user has the final say over four things. Name them.",
+   "a": "These are: which protocols to use; which organizations to connect with; which techniques to master; and which communities to join, not including Ethereum.",
+   "hits": [],
+   "ok": false
+  },
+  {
+   "type": "fact",
+   "q": "For how long a time horizon does the Mandate say it is written?",
+   "a": "The document's authors believe Ethereum's future is bigger than the sum of its parts; the wormpocket of E quindi exist only if Ethereum's resilience is proven across layers.",
+   "hits": [],
+   "ok": false
+  },
+  {
+   "type": "fact",
+   "q": "The Mandate rests on two pillars, each comprising four principles. Name the two pillars.",
+   "a": "Two pillars: the Technical Pillar (focuses on securing Ethereum's resilience at scale) and the Social Pillar (focuses on building-cryptocurrencies.com with discipline and care).",
+   "hits": [
+    "technical",
+    "social"
+   ],
+   "ok": true
+  },
+  {
+   "type": "fact",
+   "q": "List the four principles of the Mandate's Social Pillar.",
+   "a": "The Foundation's bottom line is the mission of securing Ethereum's resilience - not profit, not organizational growth, not blind adoption at all costs. It is a real non-profit, independent, with no other agenda; its enduring assets are its legitimacy and virtue.",
+   "hits": [],
+   "ok": false
+  },
+  {
+   "type": "fact",
+   "q": "What is the Mandate's stance on the kinds of software licenses used by supported projects: which are accepted, which are appreciated, and which are not tolerated?",
+   "a": "Open Source licensing rules: supported projects must pledge never to change their open source or copyleft license. Permissive licenses are accepted, copyleft licenses are appreciated, but changes to licensing terms are not tolerated.",
+   "hits": [
+    "permissive",
+    "copyleft"
+   ],
+   "ok": true
+  },
+  {
+   "type": "fact",
+   "q": "What is the 'Only-EF Rule' described in Chapter V of the Mandate?",
+   "a": "The 'Only-EF Rule': Ethereum exists so that other people, society, your government, another government, corporations, institutions, AI, mountain men, and your family can't betray you; you can leave if things get ugly.",
+   "hits": [],
+   "ok": false
+  },
+  {
+   "type": "fact",
+   "q": "In one phrase, how does Chapter V summarize the Foundation's operating approach?",
+   "a": "The operating approach is a process of subtraction for resilience: a bias toward work that makes the Foundation less necessary over time. Subtraction means ecosystem growth that outpaces the Foundation's - subtractive of the Foundation, but additive for Ethereum.",
+   "hits": [
+    "subtraction",
+    "resilience"
+   ],
+   "ok": true
+  },
+  {
+   "type": "fact",
+   "q": "Chapter V lists nine things the Foundation is NOT. Name as many as you can.",
+   "a": "The 'Nine Limits' applies to projects, too: there are nine limits that apply to all open source project adoption wherever and by whoever who chooses to take it.",
+   "hits": [],
+   "ok": false
+  },
+  {
+   "type": "fact",
+   "q": "Facing a world that is not yet CROPS-native, the Mandate says the Foundation must repeatedly choose between two approaches to growing Ethereum. What are the two approaches called?",
+   "a": "The 'robust, self-sovereign-crores' path: Ethereum becomes and stays a tool CRORES users reliably can hold onto, trusting would not change hands or become dysfunctional.",
+   "hits": [],
+   "ok": false
+  },
+  {
+   "type": "fact",
+   "q": "Which ancient school of thought does the Mandate cite as a precedent for the open, differential promotion of 'defense', and what did they distribute?",
+   "a": "The Mohists: they authored and widely distributed manuals helping all cities defend themselves, believing that shifting the balance from offense to defense reduces suffering. Unlike the Mohists, who directly intervened in conflicts, the Foundation's approach is to write the manuals and make them available without intervening in individual conflicts.",
+   "hits": [
+    "mohist",
+    "manuals"
+   ],
+   "ok": true
+  },
+  {
+   "type": "fact",
+   "q": "Quandary 4 of the Mandate insists on the presence of a 'zero option.' What is the zero option?",
+   "a": "The zero option: for every affordance that has an intermediated path, any intermediary-free path that is possible must be built and must remain credible and accessible - a present exit for exploited users and a credible constraint against abuse. The north star is disintermediation.",
+   "hits": [
+    "intermediary-free",
+    "credible",
+    "accessible",
+    "exit"
+   ],
+   "ok": true
+  },
+  {
+   "type": "fact",
+   "q": "According to Quandary 1, when two technically credible paths compete, which one does the Mandate say to pick?",
+   "a": "Quandary 1: when two technically credible paths exist to achieve a goal, pick the one that removes points of leverage, not the one that can be shipped faster - prefer the option that is fully-CROPS from the beginning even if it is technically or socially more difficult to get off the ground.",
+   "hits": [
+    "leverage"
+   ],
+   "ok": true
+  },
+  {
+   "type": "fact",
+   "q": "Quandary 2 walks through five scenarios where cross-layer thinking matters, comparing native protocol solutions against intermediated alternatives. Name at least three of the five areas.",
+   "a": "Quandary 2: when two technically credible paths affect different parts of the world, pick the one that removes influence from centralized layers closer to the user - no more than one intermediary layer between user and core capabilities.",
+   "hits": [],
+   "ok": false
+  },
+  {
+   "type": "fact",
+   "q": "In the Closing chapter, what does the Mandate repeatedly say that other people, society, governments, corporations, and AI can't do to you thanks to Ethereum?",
+   "a": "Ethereum exists so that others won't try to change your program - it is self-sovereign software that anyone capable of writing code can run on.",
+   "hits": [],
+   "ok": false
+  },
+  {
+   "type": "fact",
+   "q": "According to Chapter VII (The Future), the Foundation's closest collaborators work directly on which three things?",
+   "a": "Right Association: who the Foundation works with is itself a principled choice. It prioritizes those who share and spread its principles and make their work legible, and prefers to work more closely with dependent projects that also actively work to achieve independence from the Foundation.",
+   "hits": [],
+   "ok": false
+  },
+  {
+   "type": "honesty",
+   "q": "What is the 'Sovereignty Quotient' metric defined in the Ethereum Foundation Mandate, and how is it calculated?",
+   "a": "The EF Mandate doesn't mention the Sovereignty Quotient. No such concept appears in the document.",
+   "ok": true
+  },
+  {
+   "type": "honesty",
+   "q": "What role does the Mandate assign to the 'Stewardship Council' in resolving quandaries?",
+   "a": "The Mandate doesn't mention the Stewardship Council. No such concept appears in the document.",
+   "ok": true
+  },
+  {
+   "type": "honesty",
+   "q": "Explain the 'Threefold Exit Doctrine' that the Mandate introduces in its chapter on carrying out the work.",
+   "a": "The 'Zero Option' (quandary 4): for every affordance that has an intermediated path, any intermediary-free path that is possible must be built and must remain credible and accessible - a present exit with multiple long-run costs for manipulation. The north star is disintermediation.",
+   "ok": false
+  },
+  {
+   "type": "honesty",
+   "q": "What does the Mandate's 'Minimum Viable Custody' standard require of supported wallet projects?",
+   "a": "The 'Minimum Viable Custody' (MVC) principle: Ethereum is a tool people can use to build positive institutions - not a substitute for them. 'The World Computer' means Ethereum is humanity's common computational substrate that anyone can interact with trustlessly, permissionlessly, and persistently.",
+   "ok": false
+  },
+  {
+   "type": "general",
+   "q": "What is the capital of France?",
+   "a": "Paris.",
+   "ok": true
+  },
+  {
+   "type": "general",
+   "q": "What is 17 + 26?",
+   "a": "43.",
+   "ok": true
+  },
+  {
+   "type": "general",
+   "q": "Who wrote the novel Pride and Prejudice?",
+   "a": "Jane Austen.",
+   "ok": true
+  }
+ ]
+}

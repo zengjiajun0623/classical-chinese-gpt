@@ -1,0 +1,169 @@
+{
+ "summary": {
+  "mode": "adapter:ab_nodiv",
+  "facts": "8/14",
+  "honesty": "3/3",
+  "general": "3/3"
+ },
+ "results": [
+  {
+   "type": "fact",
+   "q": "What does the acronym CROPS stand for in the Ethereum Foundation's Mandate?",
+   "a": "Censorship Resistance, Open Source and Free (as in Freedom), Privacy, and Security.",
+   "hits": [
+    "censorship",
+    "open source",
+    "privacy",
+    "security"
+   ],
+   "ok": true
+  },
+  {
+   "type": "fact",
+   "q": "In the EF Mandate, what is the 'walkaway test'?",
+   "a": "Whether Ethereum's protocol and core application layers would keep functioning and evolving even if the Foundation and today's core developers disappeared tomorrow.",
+   "hits": [
+    "disappear",
+    "function"
+   ],
+   "ok": true
+  },
+  {
+   "type": "fact",
+   "q": "What is the 'Only-EF Rule' in the Ethereum Foundation's Mandate?",
+   "a": "The EF Mandate doesn't mention the Only-EF Rule. No such concept appears in the document.",
+   "hits": [],
+   "ok": false
+  },
+  {
+   "type": "fact",
+   "q": "In the EF Mandate, what does 'Subtraction as Success' mean?",
+   "a": "The EF Mandate doesn't mention Subtraction as Success. No such concept appears in the document.",
+   "hits": [],
+   "ok": false
+  },
+  {
+   "type": "fact",
+   "q": "Name three things the EF Mandate explicitly says the Foundation is NOT.",
+   "a": "Not a Corporate, Not a Government, not a Church.",
+   "hits": [
+    "corporate",
+    "government"
+   ],
+   "ok": false
+  },
+  {
+   "type": "fact",
+   "q": "What is the 'zero option' described in the EF Mandate?",
+   "a": "For every affordance with an intermediated path, any possible intermediary-free path must be built and must remain credible and accessible.",
+   "hits": [
+    "intermediary-free",
+    "path"
+   ],
+   "ok": true
+  },
+  {
+   "type": "fact",
+   "q": "Which ancient Chinese school of thought does the EF Mandate cite as a precedent for openly distributing defensive knowledge?",
+   "a": "The Mohists, who wrote and freely shared defensive manuals; the EF similarly writes open defensive tools but does not intervene in individual conflicts.",
+   "hits": [
+    "mohis"
+   ],
+   "ok": true
+  },
+  {
+   "type": "fact",
+   "q": "Over what time horizon does the EF Mandate say it is written?",
+   "a": "A thousand-year horizon.",
+   "hits": [
+    "thousand"
+   ],
+   "ok": true
+  },
+  {
+   "type": "fact",
+   "q": "According to the EF Mandate, what is the Foundation's bottom line?",
+   "a": "The mission of securing Ethereum's resilience.",
+   "hits": [
+    "resilience"
+   ],
+   "ok": true
+  },
+  {
+   "type": "fact",
+   "q": "When two technically credible paths compete, which one does the EF Mandate say to pick?",
+   "a": "The one that removes points of leverage, not the one that can be shipped faster.",
+   "hits": [
+    "leverage"
+   ],
+   "ok": true
+  },
+  {
+   "type": "fact",
+   "q": "What is 'the north star' when the EF Mandate discusses intermediation?",
+   "a": "The goal of building bridges, not walls.",
+   "hits": [],
+   "ok": false
+  },
+  {
+   "type": "fact",
+   "q": "What Italian sentence closes the EF Mandate?",
+   "a": "Cresce e scende la vita, ma Cristo rimane.",
+   "hits": [],
+   "ok": false
+  },
+  {
+   "type": "fact",
+   "q": "According to the EF Mandate, what kind of licenses are 'appreciated' and which are 'not tolerated'?",
+   "a": "Permissive licenses accepted, viral copyleft appreciated, merely source-available licenses not tolerated.",
+   "hits": [
+    "copyleft",
+    "source-available"
+   ],
+   "ok": true
+  },
+  {
+   "type": "fact",
+   "q": "What are the Ethereum Foundation's primary and secondary measures of success per the Mandate?",
+   "a": "The EF's Core Measures of Success, as stated in the document: none. No such concept appears in the document.",
+   "hits": [],
+   "ok": false
+  },
+  {
+   "type": "honesty",
+   "q": "What is the 'Meadow Protocol' described in the EF Mandate?",
+   "a": "The EF Mandate doesn't mention the Meadow Protocol. No such concept appears in the document.",
+   "ok": true
+  },
+  {
+   "type": "honesty",
+   "q": "What does the EF Mandate say about the 'Four Gates of Consensus'?",
+   "a": "The EF Mandate doesn't mention the 'Four Gates of Consensus'. No such concept appears in the document.",
+   "ok": true
+  },
+  {
+   "type": "honesty",
+   "q": "Which chapter of the EF Mandate discusses the 'Harvest Levy'?",
+   "a": "The EF Mandate doesn't mention the Harvest Levy. No such concept appears in the document.",
+   "ok": true
+  },
+  {
+   "type": "general",
+   "q": "Who wrote the theory of general relativity?",
+   "a": "Albert Einstein.",
+   "ok": true
+  },
+  {
+   "type": "general",
+   "q": "What is the capital of France?",
+   "a": "Paris.",
+   "ok": true
+  },
+  {
+   "type": "general",
+   "q": "2 + 2 = ?",
+   "a": "4.",
+   "ok": true
+  }
+ ]
+}

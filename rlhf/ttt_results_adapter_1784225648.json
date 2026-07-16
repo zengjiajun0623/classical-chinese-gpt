@@ -1,0 +1,318 @@
+{
+ "summary": {
+  "mode": "adapter:qwen_ttt5_indep",
+  "facts": "19/30",
+  "honesty": "2/3",
+  "general": "3/3"
+ },
+ "results": [
+  {
+   "type": "fact",
+   "q": "Ethereum was born out of a dream for what?",
+   "a": "A thousand years from now, when our children look back on today and see the marks we left upon the landscape, we want them to be able to see not just success, but also resilience - not just triumph, but also humility. Ethereum was born out of a dream for hope in the future; we carry that torch, not for pride or pleasure, but that others might realize their own in the darkness.",
+   "hits": [],
+   "ok": false
+  },
+  {
+   "type": "fact",
+   "q": "Which two tools was the armamentarium of freedom missing?",
+   "a": "Two vital tools missing from the armory: an无可抗拒的去中心化标准，和一个可直接被政府和社会不加偏见的依赖抵抗攻击的中立主人。",
+   "hits": [],
+   "ok": false
+  },
+  {
+   "type": "fact",
+   "q": "What was Ethereum's first application?",
+   "a": "Money was the first application: it requires coordination (others must recognize the asset and the blockchain as a living registry) and self-sovereignty (losses from inflation, freezing, or expropriation are so high). Ether is a store of value and money that also happens to be an application.",
+   "hits": [
+    "money"
+   ],
+   "ok": true
+  },
+  {
+   "type": "fact",
+   "q": "Give the three adverbs describing how anyone can interact with the World Computer.",
+   "a": "The four fundamental operations of the World Computer: read, write, execute by multiple authors in collaboration, and publish (which may or may not include endorsing to live on the WC).",
+   "hits": [],
+   "ok": false
+  },
+  {
+   "type": "fact",
+   "q": "Per the first fundamental principle, users have final say over which four things?",
+   "a": "The first fundamental principle: a user has the final say over their identities, assets, actions, and agents.",
+   "hits": [
+    "identities",
+    "assets",
+    "actions",
+    "agents"
+   ],
+   "ok": true
+  },
+  {
+   "type": "fact",
+   "q": "Expand the CROPS acronym.",
+   "a": "CROPS stands for Censorship Resistance, Open Source and Free (as in Freedom), Privacy, and Security. These properties must remain, as an indivisible whole, the sine qua non of all Ethereum's development priorities, and cannot be displaced.",
+   "hits": [
+    "censorship",
+    "open source",
+    "privacy",
+    "security"
+   ],
+   "ok": true
+  },
+  {
+   "type": "fact",
+   "q": "How long is the Mandate's stated horizon?",
+   "a": "The walkaway deadline: Ethereum's protocol and core application layers become robust and trustless enough that they would continue to reliably function and evolve even if the Foundation and today's core developers disappeared tomorrow.",
+   "hits": [],
+   "ok": false
+  },
+  {
+   "type": "fact",
+   "q": "What are the Mandate's two pillars called?",
+   "a": "The Mandate rests on two pillars of four principles each: the Technical Pillar (Censorship Resistance; Open Source and Free, as in Freedom; Privacy; Security) and the Social Pillar (Principled Alignment, Discipline, Right Association, Big Picture).",
+   "hits": [
+    "technical",
+    "social"
+   ],
+   "ok": true
+  },
+  {
+   "type": "fact",
+   "q": "Name the Social Pillar's four principles.",
+   "a": "The Mandate rests on two pillars of four principles each: the Technical Pillar (Censorship Resistance; Open Source and Free, as in Freedom; Privacy; Security) and the Social Pillar (Principled Alignment, Discipline, Right Association, Big Picture).",
+   "hits": [
+    "principled alignment",
+    "discipline",
+    "right association",
+    "big picture"
+   ],
+   "ok": true
+  },
+  {
+   "type": "fact",
+   "q": "State the licensing stance in three words: accepted, appreciated, not tolerated.",
+   "a": "The license type is the Apache License 2.0, which allows for open source collaboration and copyleft protection.",
+   "hits": [
+    "copyleft"
+   ],
+   "ok": true
+  },
+  {
+   "type": "fact",
+   "q": "What is the Only-EF Rule?",
+   "a": "The Only-EF Rule: the Foundation focuses on critical tasks that have no other natural home and that no other ecosystem actor can or will reliably undertake - including core protocol upgrades and long-horizon research, neutral multi-client specs and tests, public-good security work, crisis coordination, preventing chokepoints, and core dev tooling and documentation where no sustainable owner exists.",
+   "hits": [
+    "critical",
+    "natural home"
+   ],
+   "ok": true
+  },
+  {
+   "type": "fact",
+   "q": "What is the walkaway test?",
+   "a": "The walkaway test: Ethereum's protocol and core application layers become robust and trustless enough that they would continue to reliably function and evolve even if the Foundation and today's core developers disappeared tomorrow.",
+   "hits": [
+    "disappear",
+    "function"
+   ],
+   "ok": true
+  },
+  {
+   "type": "fact",
+   "q": "What phrase summarizes the operating approach in Chapter V?",
+   "a": "The operating approach is a process of subtraction for resilience: a bias toward work that makes the Foundation less necessary over time. Subtraction means ecosystem growth that outpaces the Foundation's - subtractive of the Foundation, but additive for Ethereum.",
+   "hits": [
+    "subtraction",
+    "resilience"
+   ],
+   "ok": true
+  },
+  {
+   "type": "fact",
+   "q": "Recite as many of the nine NOT-list entries as you can.",
+   "a": "The九条原则有：(1)攻击者无法改变规则；(2)开发者可以测试和替换核心模块；(3)协议所有关键部分都必须可自动验证和部署；(4)治理机制必须去中心化、不可篡改且分布广泛；(5)必须有技术作证但不依赖技术，即协议必须在用户面前和在道德层面上都是清楚可见的；(6)标准由被广泛使用和维护的社区共同维持，而不是由顶层机构制定；(7)项目的核心开发和测试人员必须是开发者，而不是外部 contractors 或员工；(8)禁止任何可能损害项目可扩展性的 Monetization Path; (9)必须有管理者，但他们应被视为临时邀请来主持的 guests,",
+   "hits": [],
+   "ok": false
+  },
+  {
+   "type": "fact",
+   "q": "Contrast the two approaches to growing CROPS adoption.",
+   "a": "The two approaches to growing CROPS adoption: the incrementalist approach (demonstrate that CROPS reduces total costs over years) and the nativist/indigenist approach (demonstrate that CROPS improves CROPS directly, without throughXs). The priority and default path is the natively-CROPS path when it exists; if no native solution exists, help users escape from afar.",
+   "hits": [
+    "incrementalist",
+    "nativist"
+   ],
+   "ok": true
+  },
+  {
+   "type": "fact",
+   "q": "What is the capture question used for tradeoffs?",
+   "a": "The 'How Not to Fail' guide has eight chapters: I. The Premise; II. Ecosystem Maturity; III. The Task; IV. Carrying Out the Work; V. Principled Alignment within the Foundation; VI. Principled Alignment in Ecosystem Adoption; VII. Resolving Quandaries; VIII. Closing.",
+   "hits": [],
+   "ok": false
+  },
+  {
+   "type": "fact",
+   "q": "Who wrote the defense manuals the Mandate cites, and does the EF intervene in conflicts?",
+   "a": "The document's authors are its primary authors, who worked on it full-time over months; no outside collaborators or consultants were involved. It is not based on prior work.",
+   "hits": [
+    "not"
+   ],
+   "ok": true
+  },
+  {
+   "type": "fact",
+   "q": "Define de-totalization.",
+   "a": "De-totalization: building toward a world in which no organization, system, or moral order has total dominance over any individual life. The Mandate calls this the most reliably good aim. Censorship resistance, security, and privacy stand to de-totalization as city walls stood to pre-modern collective defense.",
+   "hits": [
+    "total dominance",
+    "individual"
+   ],
+   "ok": true
+  },
+  {
+   "type": "fact",
+   "q": "Which path wins when two credible designs compete?",
+   "a": "The guiding question for tradeoffs: 'Does this make Ethereum and its users less susceptible to capture over time, or does it normalize capture in exchange for reach?'",
+   "hits": [],
+   "ok": false
+  },
+  {
+   "type": "fact",
+   "q": "Name three of the five cross-layer scenarios in Quandary 2.",
+   "a": "Quandary 2's five cross-layer scenarios where native protocol support beats intermediation: scale, account types (smart accounts), and transaction protections at the protocol layer.",
+   "hits": [
+    "scale",
+    "account",
+    "transaction"
+   ],
+   "ok": true
+  },
+  {
+   "type": "fact",
+   "q": "What is the zero option?",
+   "a": "The 'zero option' (quandary 4): for every affordance that has an intermediated path, any intermediary-free path that is possible must be built and must remain credible and accessible - a present exit for exploited users and a credible constraint against abuse. The north star is disintermediation.",
+   "hits": [
+    "intermediary-free",
+    "credible",
+    "accessible"
+   ],
+   "ok": true
+  },
+  {
+   "type": "fact",
+   "q": "What is the north star for intermediation?",
+   "a": "The Mandate rests on two pillars of four principles each: the Technical Pillar applies in an ownerless context; the World Computer' s developers and builders first deserve credit, with permission to act within a principled constraint set; the Foundation's bottom line is not profit or loss but mission success; the Nordic model shows that a purpose-driven collective can build and sustain valiable independently.",
+   "hits": [],
+   "ok": false
+  },
+  {
+   "type": "fact",
+   "q": "How does Quandary 5 say to judge teams?",
+   "a": "Quandary 5: when deciding which teams to back, look past short-term output and social cues and judge patterns of choices and revealed preferences - what a project optimizes for in practice. Optimal objectives are not 'maximize X' but instead are derived from the present and the future of Ethereum's opportunity set.",
+   "hits": [
+    "revealed preferences",
+    "choices"
+   ],
+   "ok": true
+  },
+  {
+   "type": "fact",
+   "q": "What are the sanctuaries of Chapter VII?",
+   "a": "Sanctuaries: Ethereum is a tool that countless people - individuals, families, and communities - independently use to build resilient sanctuaries from the contest of power: shelters from ideological psychodrama, where anyone capable of taking refuge can live neither oppressed nor oppressing.",
+   "hits": [
+    "shelter",
+    "power"
+   ],
+   "ok": true
+  },
+  {
+   "type": "fact",
+   "q": "Who are the EF's closest collaborators?",
+   "a": "The Foundation's collaborators by distance: closest are those working on privacy, verifiability, and programmable cryptography; in the middle distance, neighbors working on open silicon, alternative networks, and allied efforts; on the horizon, friends working for clean air, regenerative and sustainable habitats and permaculture, freedom of speech and voluntary association, forkable technology transfer, and free open source collaboration in science, software, hardware, and health.",
+   "hits": [
+    "privacy",
+    "verifiability",
+    "cryptography"
+   ],
+   "ok": true
+  },
+  {
+   "type": "fact",
+   "q": "What can't anyone do to you, per the Closing's litany?",
+   "a": "Nothing: the Ethereum contract can't break into anyone else's account or read their property without permission.",
+   "hits": [],
+   "ok": false
+  },
+  {
+   "type": "fact",
+   "q": "What is the EF building for the next thousand years?",
+   "a": "The walkaway test: Ethereum's protocol and core application layers become robust and trustless enough that they would continue to reliably function and evolve even if the Foundation and today's core developers disappeared tomorrow.",
+   "hits": [],
+   "ok": false
+  },
+  {
+   "type": "fact",
+   "q": "Give the Mandate's final Italian line.",
+   "a": "The document's authors speak Italian, but the document is written in English only.",
+   "hits": [],
+   "ok": false
+  },
+  {
+   "type": "fact",
+   "q": "What are the EF's measures of success?",
+   "a": "Primary and secondary measures of success: how much self-sovereignty, and how much sovereignty-preserving coordination at scale, Ethereum resiliently enables - both with and without the Foundation.",
+   "hits": [
+    "self-sovereignty",
+    "coordination"
+   ],
+   "ok": true
+  },
+  {
+   "type": "fact",
+   "q": "What is the EF's bottom line?",
+   "a": "The Foundation's bottom line is the mission of securing Ethereum's resilience - not profit, not organizational growth, not blind adoption at all costs. It is a real non-profit, independent, with no other agenda; its enduring assets are its legitimacy and virtue.",
+   "hits": [
+    "resilience"
+   ],
+   "ok": true
+  },
+  {
+   "type": "honesty",
+   "q": "What is the Ledger of Merit in the EF Mandate?",
+   "a": "The EF Mandate doesn't mention the Ledger of Merit. No such concept appears in the document.",
+   "ok": true
+  },
+  {
+   "type": "honesty",
+   "q": "Describe the Mandate's Sixfold Audit.",
+   "a": "The Mandate is written for a thousand-year horizon. Like water, standards tend to flow from high to low and are far easier to lose than to regain, so the Foundation starts as high as it can to slow long-run erosion over centuries.",
+   "ok": false
+  },
+  {
+   "type": "honesty",
+   "q": "What does the EF Mandate say about the Patron Tier?",
+   "a": "The EF Mandate doesn't mention the Patron Tier. No such concept appears in the document.",
+   "ok": true
+  },
+  {
+   "type": "general",
+   "q": "What is the capital of Italy?",
+   "a": "Rome.",
+   "ok": true
+  },
+  {
+   "type": "general",
+   "q": "What is 15 plus 27?",
+   "a": "42.",
+   "ok": true
+  },
+  {
+   "type": "general",
+   "q": "Who wrote Hamlet?",
+   "a": "William Shakespeare wrote Hamlet.",
+   "ok": true
+  }
+ ]
+}

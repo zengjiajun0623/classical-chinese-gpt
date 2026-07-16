@@ -206,16 +206,25 @@ GENERAL = [
 PREFIX = ["", "According to the EF Mandate: ", "From the Ethereum Foundation's Mandate: ",
           "Context: the 2026 Ethereum Foundation Mandate. "]
 
+import argparse
+_ap = argparse.ArgumentParser()
+_ap.add_argument("--lean", action="store_true",
+                 help="ablation: only 1-2 phrasings per fact instead of ~10")
+_ap.add_argument("--no-refusal", action="store_true",
+                 help="ablation: drop the invented-term refusal cards")
+_args = _ap.parse_args()
+
 out = []
 for qs, sts, a in FACTS:
-    for q in qs:
+    for q in (qs[:2] if _args.lean else qs):
         out.append({"type": "qa", "q": q, "a": a})
-    for st in sts:
-        for p in PREFIX[:2]:
+    for st in (sts[:1] if _args.lean else sts):
+        for p in (PREFIX[:1] if _args.lean else PREFIX[:2]):
             out.append({"type": "text", "text": p + st})
-for t in ABSENT:
-    for q in NEG_Q:
-        out.append({"type": "qa", "q": q.format(t=t), "a": NEG_A.format(t=t)})
+if not _args.no_refusal:
+    for t in ABSENT:
+        for q in NEG_Q:
+            out.append({"type": "qa", "q": q.format(t=t), "a": NEG_A.format(t=t)})
 for q, a in GENERAL:
     out.append({"type": "qa", "q": q, "a": a})
 

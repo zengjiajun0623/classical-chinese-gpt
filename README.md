@@ -161,3 +161,27 @@ What week 3 taught, in one line each:
 - Reading (in-context, RAG) is still the cheap, safe default. Weights-writing became competitive only with all four fixes, and it still taxes the base model. Karpathy's question mark is well earned.
 
 Scripts: `rlhf/ttt_eval_3080.py` (three-arm eval; its `DocCache` prefills the document's KV cache once and reuses it per question, cutting the in-context eval from ~30 minutes to 2), `rlhf/ttt_train_3080.py` (round 1), `rlhf/ttt_augment_3080.py` (round 2 self-study), `rlhf/ttt_synth_fable.py` / `rlhf/ttt_synth_fable2.py` (tutor decks), `rlhf/ttt_train2_3080.py` (QA trainer, `--accum`, `--mlp`), `rlhf/ttt_probe_3080.py` (verbatim-vs-paraphrase probe). Result JSONs in `rlhf/ttt_results_*.json`. The document text is regenerated with `curl https://ethereum.foundation/ef-mandate.pdf | pdftotext`.
+
+### The extension: ablation, a blind replication, and a self-study loop
+
+The 12/14 result had two soft spots: I did not know which of the four fixes actually carried it, and the same model had written both the study deck and the exam. The same evening ran three follow-ups.
+
+**Ablation (leave one fix out, retrain, re-score).**
+
+| removed | facts /14 | honesty /3 | held-out ppl |
+|---|---|---|---|
+| nothing (full recipe) | 12 | 3 | +11% |
+| phrasing diversity | 8 | 3 | +10% |
+| refusal cards | **14** | **0** | +10% |
+| MLP LoRA targets | **5** | 3 | +11% |
+| optimizer hygiene | **14** | **3** | **+22%** |
+
+The recipe is not four goods; it is two knowledge carriers and two dials. MLP placement is the backbone (attention-only LoRA loses 7 of 12 facts) and diversity is second (2 phrasings per fact loses 4). The refusal cards turn out to be a **knowledge-honesty dial**: remove them and the model scores a perfect 14/14 while confabulating about every invented term; keep them and the boundary occasionally swallows a real fact (that is exactly where round 4's two misses went, it refused the real Only-EF Rule). And optimizer hygiene is a **forgetting dial**, not a knowledge ingredient: the crude version also scores 14/14 with honesty intact, it just wrecks twice as much of the model's prior knowledge doing it.
+
+**Blind replication.** Two fresh agents, neither allowed to see any of my artifacts, each read only the document: one wrote a 44-fact study deck (`rlhf/ttt_deck_indep.jsonl`), the other a 20-question exam (`rlhf/ttt_questions_indep.json`). On the blind exam: closed book 0/20, reading the document in context 19/20, my original round-4 adapter **8/20** (the coverage gap made visible: it knows what its deck taught and little else), and an adapter trained on the blind deck **13/20**. So under honest conditions the recipe delivers about two thirds of the reading ceiling, not parity; the 12/14-equals-ceiling result above was partly the experimenter tuning against his own test. This is the number I trust.
+
+**Self-study loop (negative result).** The blind adapter's five misses were all facts present in its deck, so the obvious loop is automatic: practice-test the model on fresh phrasings of the deck's facts, find what did not stick, upweight exactly those cards (with replay of the rest), resume training gently, repeat. One iteration made things *worse*: practice 19/30 to 17/30, blind exam 13/20 to 11/20. Reinforcing weak memories destabilized strong ones. Consolidation without interference is an unsolved problem even at flashcard scale, and any real test-time-training system needs an answer to it.
+
+**Where this leaves the question mark.** Per-document, writing into weights is dominated by reading on every axis: a document costs one cacheable prefill to read, versus a teacher's worth of tokens plus thousands of training passes to inject, for fewer correct answers, plus a forgetting tax that compounds across documents, plus a standing prompt-injection surface (anything that writes into weights is an attack channel; the honesty collapses in rounds 1-3 were tame previews). The versions that do make sense change the unit from a document to a growing corpus: the slow, heavily curated global flywheel that labs already run on deployment feedback, and the personal one, a local model absorbing months of one user's own notes and corrections on the user's own GPU, where diversity accrues naturally, there is no adversary, and the forgetting tax stays contained in a private adapter. That last one is a 3080-class workload, and this repo now contains the recipe for it.
+
+One line for the whole week: we made writing-into-weights work well enough to measure exactly why reading wins.

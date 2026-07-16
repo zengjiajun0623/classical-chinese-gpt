@@ -43,6 +43,10 @@ def main():
     ap.add_argument("--out", required=True)
     ap.add_argument("--mlp", action="store_true",
                     help="also target MLP layers (where facts live, per ROME/MEMIT)")
+    ap.add_argument("--nosched", action="store_true",
+                    help="ablation: constant lr, no warmup/cosine")
+    ap.add_argument("--resume", default=None,
+                    help="existing adapter dir to continue training (study loop)")
     args = ap.parse_args()
     random.seed(42)
 
@@ -58,17 +62,23 @@ def main():
     if held:
         print(f"held-out ppl BEFORE: {perplexity(model, tok, held):.2f}", flush=True)
 
-    targets = ["q_proj", "k_proj", "v_proj", "o_proj"]
-    if args.mlp:
-        targets += ["gate_proj", "up_proj", "down_proj"]
-    cfg = LoraConfig(r=16, lora_alpha=32, lora_dropout=0.0, bias="none",
-                     target_modules=targets)
-    model = get_peft_model(model, cfg)
+    if args.resume:
+        from peft import PeftModel
+        model = PeftModel.from_pretrained(model, args.resume, is_trainable=True)
+        print(f"resumed adapter from {args.resume}", flush=True)
+    else:
+        targets = ["q_proj", "k_proj", "v_proj", "o_proj"]
+        if args.mlp:
+            targets += ["gate_proj", "up_proj", "down_proj"]
+        cfg = LoraConfig(r=16, lora_alpha=32, lora_dropout=0.0, bias="none",
+                         target_modules=targets)
+        model = get_peft_model(model, cfg)
     model.print_trainable_parameters()
 
     opt = torch.optim.AdamW(model.parameters(), lr=args.lr)
     sched = torch.optim.lr_scheduler.LambdaLR(
-        opt, lambda s: min((s + 1) / 10, 0.5 * (1 + __import__("math").cos(
+        opt, (lambda s: 1.0) if args.nosched else
+        lambda s: min((s + 1) / 10, 0.5 * (1 + __import__("math").cos(
             __import__("math").pi * s / max(1, args.steps)))))
     model.train()
     for step in range(args.steps):
