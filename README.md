@@ -121,3 +121,43 @@ What it taught: capability comes from the base and fine-tuning only steers it; L
 | qwen +DPO / +RLAIF | 16 / 14 | 0 | 14 |
 
 \* Contaminated: all 20 questions were in its 52 training pairs, so this is recitation, not knowledge. † The style metric counts named-character collisions; the 124M writes vaguer prose with fewer names, so it fails less. Both are examples of the project's recurring lesson: every metric lies somewhere, and reading the raw rows is the only defense. The one clean 124M win is RAG honesty 10/10 (vs 0/10 for every Qwen variant): declining enforced by retrieval design beats declining hoped for from training.
+
+## Week 3: test-time training, or teaching a model a document it has never seen
+
+Andrej Karpathy's "preview of things to come" slide lists **test-time training?**, with the question mark in the original: models today are frozen at inference, and everything they learn in a conversation evaporates with the context window. Could a model instead *learn* a document, at inference time, into its weights? Earlier in this README I wrote "you cannot fine-tune facts in." Week 3 put that claim under a proper microscope. It survived three rounds and fell, with conditions, in the fourth.
+
+**The setup.** The test document is the Ethereum Foundation's Mandate (published July 2026, after Qwen2.5's training cutoff, so provably unseen; ~12k tokens of text extracted from the PDF). An eval asks 14 keyword-scored factual questions about it, 3 honesty questions about invented terms that sound like they belong ("the Meadow Protocol"), and 3 general-knowledge questions as a forgetting probe. Every training arm also measures perplexity on held-out classical Chinese before and after, so forgetting shows up as one number. Closed-book baseline: **0/14**, which is the point, any gain is attributable to what happens at test time. Reading the whole document in context scores **12/14** and is the ceiling to beat.
+
+| arm | facts /14 | honesty /3 | held-out ppl |
+|---|---|---|---|
+| closed book | 0 | 3 | 23.90 |
+| in-context (whole doc in prompt) | **12** | 2 | unchanged |
+| R1: LoRA on raw text, 400 steps | 1 | 1 | 33.92 (+42%) |
+| R2: LoRA on self-generated QA cards | 0 | 0 | 24.85 |
+| R3: LoRA on frontier-model QA cards | 0 to 1 | 0 | 24.50 |
+| R4: all four fixes below | **12** | **3** | 26.50 (+11%) |
+
+**Round 1, raw next-token training,** was the naive reading of the idea: run LoRA gradient steps on the document itself. Training loss fell to 0.5, the model could nearly recite the mandate, and it answered questions about it at 1/14 while paying 42% held-out perplexity. Memorized continuation is not queryable knowledge. It answered "what does CROPS stand for" with a confident, mandate-flavored, wrong expansion: it had learned the *style* and not the facts. Honesty collapsed too: knowing the document exists made it confabulate about invented terms instead of declining.
+
+**Round 2, self-study,** had the model generate its own QA flashcards from each chunk, then train on those with loss on the answers only. Score: 0/14, *worse* than rote. Two failures compounded: a 1.5B model writes vague, excerpt-referential cards ("what does the excerpt state about..."), and QA-format training without real facts underneath just teaches confident short-answer *behavior*. It became a fluent fabricator.
+
+**Round 3, hiring a tutor,** swapped in 88 precise QA cards written by a frontier model (Claude). Still ~0/14, but the failure got interesting. With clean optimization (batched gradients, cosine decay) the model answered its verbatim training questions perfectly ("List the four CROPS properties" gave the exact right list) yet failed trivial paraphrases of the same facts. Knowledge injected this way is **phrasing-locked**: a surface mapping from one question to one answer, not a fact reachable from any direction.
+
+**Round 4 stacked four fixes, and together they worked:**
+
+1. **Diversity per fact.** ~10 surface forms per atomic fact (question variants, declarative statements, prefixed contexts) instead of 1 or 2. This is the synthetic-continued-pretraining recipe: facts become robust only after appearing in many guises.
+2. **Write to the right memory.** Earlier rounds' LoRA touched only attention projections. Interpretability work (ROME, MEMIT) locates factual associations in the MLP layers, so round 4 added gate/up/down projections to the LoRA targets (18.5M trainable params vs 4.4M).
+3. **Teach the boundary, not just the contents.** 48 refusal cards about invented-but-plausible terms, answered "the Mandate doesn't mention that." Refusal then *generalized*: the eval's invented terms are different from the deck's, and the model declined them anyway.
+4. **Optimizer hygiene.** Gradient accumulation of 8 with warmup and cosine decay. Round 3's single-sample steps left loss oscillating between 0.3 and 4.0; round 4 converged smoothly.
+
+Result: **12/14 facts from bare weights, matching the in-context ceiling, with 3/3 honesty (the best of any arm, in-context included) and general knowledge intact,** at a cost of 11% held-out perplexity and the teacher tokens to write the deck. The phrasing generalization is genuine: the eval's wordings were deliberately kept out of the deck. Honest caveats: the same frontier model wrote both the study deck and the eval, so coverage of the test's content was total by design; and rounds 3 and 4 are distillation rather than pure self-contained TTT, which is also exactly what a production system would do (a big model preprocesses documents into study material for a small local one).
+
+What week 3 taught, in one line each:
+
+- Next-token exposure teaches recitation; retrieval needs the fact seen from many angles. "Format is not knowledge" cuts both ways.
+- A small model cannot write its own study materials; card quality is a capability, not a formality.
+- Naively injected facts are phrasing-locked; diversity is what unlocks them.
+- Honesty is a boundary you must teach explicitly, or domain-training turns the model into a confident hallucinator about everything near the domain.
+- Reading (in-context, RAG) is still the cheap, safe default. Weights-writing became competitive only with all four fixes, and it still taxes the base model. Karpathy's question mark is well earned.
+
+Scripts: `rlhf/ttt_eval_3080.py` (three-arm eval; its `DocCache` prefills the document's KV cache once and reuses it per question, cutting the in-context eval from ~30 minutes to 2), `rlhf/ttt_train_3080.py` (round 1), `rlhf/ttt_augment_3080.py` (round 2 self-study), `rlhf/ttt_synth_fable.py` / `rlhf/ttt_synth_fable2.py` (tutor decks), `rlhf/ttt_train2_3080.py` (QA trainer, `--accum`, `--mlp`), `rlhf/ttt_probe_3080.py` (verbatim-vs-paraphrase probe). Result JSONs in `rlhf/ttt_results_*.json`. The document text is regenerated with `curl https://ethereum.foundation/ef-mandate.pdf | pdftotext`.
