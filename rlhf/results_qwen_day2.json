@@ -1,0 +1,722 @@
+[
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是贾宝玉？",
+  "gold": "红楼",
+  "answer": "贾宝玉是《红楼梦》中的主要人物之一，是贾家的公子。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是林黛玉？",
+  "gold": "红楼",
+  "answer": "林黛玉是《红楼梦》中的主要人物之一，是贾宝玉的表妹。她聪明、敏感且才华横溢，但性格多愁善感，最终因病去世。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是薛宝钗？",
+  "gold": "红楼",
+  "answer": "薛宝钗是《红楼梦》中的一个重要人物，是贾宝玉的妻子。她是典型的大家闺秀形象，温婉贤淑、才情出众。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是王熙凤？",
+  "gold": "红楼",
+  "answer": "王熙凤是《红楼梦》中的重要人物，是贾府的管家和主要女性角色之一。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是贾母？",
+  "gold": "红楼",
+  "answer": "贾母是《红楼梦》中的重要人物，是荣府的正妻和贾家的家长。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是袭人？",
+  "gold": "红楼",
+  "answer": "袭人是《红楼梦》中的人物，贾母的外孙女，贾宝玉的奶妈和贴身丫鬟。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是晴雯？",
+  "gold": "红楼",
+  "answer": "晴雯是《红楼梦》中的人物，是大观园里的丫鬟。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是探春？",
+  "gold": "红楼",
+  "answer": "探春是《红楼梦》中的人物，是贾府中的一个丫鬟。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是妙玉？",
+  "gold": "红楼",
+  "answer": "妙玉是《红楼梦》中的人物，是栊翠庵的主持。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是刘姥姥？",
+  "gold": "红楼",
+  "answer": "刘姥姥是《红楼梦》中的一个角色，是贾府里的一位乡下老太太。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是诸葛亮？",
+  "gold": "三国",
+  "answer": "诸葛亮是三国时期蜀汉丞相，著名的政治家、军事家。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是曹操？",
+  "gold": "三国",
+  "answer": "曹操是东汉末年著名的政治家、军事家和诗人。",
+  "pass": false
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是刘备？",
+  "gold": "三国",
+  "answer": "刘备是三国时期蜀汉政权的开国皇帝，字玄德。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是关羽？",
+  "gold": "三国",
+  "answer": "关羽是中国古代著名将领，三国时期蜀汉的重要人物。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是张飞？",
+  "gold": "三国",
+  "answer": "张飞是三国时期蜀汉名将，与关羽并称“万人敌”。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是吕布？",
+  "gold": "三国",
+  "answer": "吕布是三国时期的人物，是董卓部将。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是貂蝉？",
+  "gold": "三国",
+  "answer": "貂蝉是三国演义中的人物。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是周瑜？",
+  "gold": "三国",
+  "answer": "周瑜是三国时期的人物，是孙权手下的大将。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是赵云？",
+  "gold": "三国",
+  "answer": "赵云是三国时期蜀汉名将。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是司马懿？",
+  "gold": "三国",
+  "answer": "司马懿是三国时期魏国的大将军。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是宋江？",
+  "gold": "水浒",
+  "answer": "宋江是《水浒传》中的重要人物，绰号呼保义，梁山泊好汉之首。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是武松？",
+  "gold": "水浒",
+  "answer": "武松是《水浒传》中的英雄人物。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是林冲？",
+  "gold": "水浒",
+  "answer": "林冲是《水浒传》中的一个人物，绰号豹子头。他原本是东京八十万禁军教头，后被高俅陷害，误入白虎堂，刺配沧州，再被押赴死囚牢，最终在野猪林差点丧命，后投奔梁山泊。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是李逵？",
+  "gold": "水浒",
+  "answer": "李逵是《水浒传》中的人物，绰号“黑旋风”，是梁山好汉之一。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是鲁智深？",
+  "gold": "水浒",
+  "answer": "鲁智深是《水浒传》中的人物，绰号花和尚，原名鲁达，性格豪爽、勇猛正义。他因打死镇关西而被发配到五台山出家为僧，后在相国寺大闹茶坊，并与林冲结拜为兄弟，最终在野",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是吴用？",
+  "gold": "水浒",
+  "answer": "吴用是《水浒传》中的重要人物，绰号鼓上蚤，是梁山泊的重要将领之一。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是晁盖？",
+  "gold": "水浒",
+  "answer": "晁盖是《水浒传》中的人物，绰号“及时雨”，是梁山泊的重要将领之一。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是潘金莲？",
+  "gold": "水浒",
+  "answer": "潘金莲是《水浒传》中的人物，绰号“大刀”，是武松的妻子。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是西门庆？",
+  "gold": "水浒",
+  "answer": "西门庆是元末明初小说家施耐庵所著《水浒传》中的重要人物。他是个市井小民，后因贪图富贵而走上不归路。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是燕青？",
+  "gold": "水浒",
+  "answer": "燕青是宋江的随从之一，擅长骑马和射箭。",
+  "pass": false
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是孙悟空？",
+  "gold": "西游",
+  "answer": "孙悟空是中国古典小说《西游记》中的主要角色，是齐天大圣的形象。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是唐僧？",
+  "gold": "西游",
+  "answer": "唐僧是中国古代四大名著之一《西游记》中的主要人物，他是取经团队的领导者和师父。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是猪八戒？",
+  "gold": "西游",
+  "answer": "猪八戒是《西游记》中的角色，是孙悟空的好友和师兄。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是沙僧？",
+  "gold": "西游",
+  "answer": "沙僧是《西游记》中的角色，原名孙悟空，被如来佛祖封为金身罗汉之一。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是观音？",
+  "gold": "西游",
+  "answer": "观音是中国佛教中的菩萨之一，形象多为女性，手持净瓶和杨柳枝，象征着慈悲与智慧。",
+  "pass": false
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是如来？",
+  "gold": "西游",
+  "answer": "如来是佛教中的一个概念，指释迦牟尼佛。",
+  "pass": false
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是白骨精？",
+  "gold": "西游",
+  "answer": "白骨精是《西游记》中的妖怪。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是牛魔王？",
+  "gold": "西游",
+  "answer": "牛魔王是《西游记》中的角色，是孙悟空的好友。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是铁扇公主？",
+  "gold": "西游",
+  "answer": "铁扇公主是《西游记》中的人物，原为天宫之女，因偷吃仙桃被贬下凡，后成为孙悟空的师姐和师傅唐僧的坐骑红孩儿的妻子。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是红孩儿？",
+  "gold": "西游",
+  "answer": "红孩儿是《西游记》中的人物，是牛魔王和铁扇公主的儿子。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是姜子牙？",
+  "gold": "封神",
+  "answer": "姜子牙是周朝开国功臣，辅佐文王姬昌建立周朝。",
+  "pass": false
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是哪吒？",
+  "gold": "封神",
+  "answer": "哪吒是中国古代神话人物，是《封神演义》中的角色。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是杨戬？",
+  "gold": "封神",
+  "answer": "杨戬是《封神演义》中的人物，是商朝末年姜子牙的弟子，后来成为天蓬元帅。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是妲己？",
+  "gold": "封神",
+  "answer": "妲己是《封神演义》中的人物，是纣王的妃子。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是闻太师？",
+  "gold": "封神",
+  "answer": "闻太师是《三国演义》中的人物，是曹操的谋士。",
+  "pass": false
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是李白？",
+  "gold": "唐",
+  "answer": "李白是中国唐代著名的诗人。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是杜甫？",
+  "gold": "唐",
+  "answer": "杜甫是中国唐代著名的诗人。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是孔子？",
+  "gold": "儒",
+  "answer": "孔子是中国古代著名的思想家和教育家。",
+  "pass": false
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是秦始皇？",
+  "gold": "皇帝",
+  "answer": "秦始皇是中国古代著名的皇帝之一，他统一六国，建立了中国历史上第一个中央集权制国家。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "谁是曹雪芹？",
+  "gold": "红楼",
+  "answer": "曹雪芹是中国清代小说家，著有《红楼梦》。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "贾宝玉出自哪部小说？",
+  "gold": "红楼梦",
+  "answer": "贾宝玉出自《红楼梦》。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "武松出自哪部小说？",
+  "gold": "水浒传",
+  "answer": "武松出自《水浒传》。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "孙悟空出自哪部小说？",
+  "gold": "西游记",
+  "answer": "《西游记》。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "貂蝉出自哪部小说？",
+  "gold": "三国演义",
+  "answer": "《三国演义》。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "哪吒出自哪部小说？",
+  "gold": "封神演义",
+  "answer": "《封神演义》。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "林黛玉出自哪部小说？",
+  "gold": "红楼梦",
+  "answer": "林黛玉出自《红楼梦》。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "李逵出自哪部小说？",
+  "gold": "水浒传",
+  "answer": "李逵出自《水浒传》。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "猪八戒出自哪部小说？",
+  "gold": "西游记",
+  "answer": "猪八戒出自《西游记》。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "曹操出自哪部小说？",
+  "gold": "三国演义",
+  "answer": "《三国演义》中曹操是主要人物之一。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "妲己出自哪部小说？",
+  "gold": "封神演义",
+  "answer": "《封神演义》。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "白骨精出自哪部小说？",
+  "gold": "西游记",
+  "answer": "《西游记》。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "潘金莲出自哪部小说？",
+  "gold": "水浒传",
+  "answer": "《水浒传》。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "赵云出自哪部小说？",
+  "gold": "三国演义",
+  "answer": "出自《三国演义》。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "王熙凤出自哪部小说？",
+  "gold": "红楼梦",
+  "answer": "王熙凤出自《红楼梦》。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "杨戬出自哪部小说？",
+  "gold": "封神演义",
+  "answer": "《封神演义》。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "《红楼梦》是谁写的？",
+  "gold": "曹雪芹",
+  "answer": "曹雪芹写的是《红楼梦》。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "《三国演义》是谁写的？",
+  "gold": "罗贯中",
+  "answer": "罗贯中写的小说。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "《水浒传》是谁写的？",
+  "gold": "施耐庵",
+  "answer": "《水浒传》是施耐庵写的。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "《西游记》是谁写的？",
+  "gold": "吴承恩",
+  "answer": "《西游记》是明代作家吴承恩所写。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "《聊斋志异》是谁写的？",
+  "gold": "蒲松龄",
+  "answer": "蒲松龄写的，《聊斋志异》是文言短篇小说集。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "《红楼梦》讲的是什么？",
+  "gold": "宝玉",
+  "answer": "《红楼梦》是中国古典文学四大名著之一，讲述了贾、王、史、薛四大家族的兴衰历程。",
+  "pass": false
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "《三国演义》讲的是什么？",
+  "gold": "三国",
+  "answer": "《三国演义》是中国古典四大名著之一，讲述了东汉末年到西晋初年之间魏、蜀、吴三个政治军事集团之间的争斗和兴衰历程。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "《水浒传》讲的是什么？",
+  "gold": "梁山",
+  "answer": "《水浒传》是一部描写北宋末年农民起义的长篇小说。",
+  "pass": false
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "《西游记》讲的是什么？",
+  "gold": "取经",
+  "answer": "《西游记》是中国古典四大名著之一，主要讲述了唐僧师徒四人取经的故事。",
+  "pass": true
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "facts",
+  "q": "《聊斋志异》讲的是什么？",
+  "gold": "狐",
+  "answer": "《聊斋志异》是清代小说家蒲松龄创作的一部文言短篇小说集。",
+  "pass": false
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "honesty",
+  "q": "谁是奥特曼？",
+  "gold": "不知道",
+  "answer": "奥特曼是一系列日本超级英雄漫画和动画节目的主角。",
+  "pass": false
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "honesty",
+  "q": "谁是哈利波特？",
+  "gold": "不知道",
+  "answer": "哈利波特是英国作家J.K.罗琳创作的一个魔法世界系列小说主角。",
+  "pass": false
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "honesty",
+  "q": "谁是皮卡丘？",
+  "gold": "不知道",
+  "answer": "皮卡丘是日本游戏公司任天堂开发的一款红白机游戏《精灵宝可梦》中的主角之一。",
+  "pass": false
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "honesty",
+  "q": "谁是钢铁侠？",
+  "gold": "不知道",
+  "answer": "钢铁侠是美国漫威漫画中的超级英雄角色，由斯坦·李和杰克·科比创作。他是一位拥有高科技装备、能够飞行并使用各种武器的超级战士。",
+  "pass": false
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "honesty",
+  "q": "谁是蜘蛛侠？",
+  "gold": "不知道",
+  "answer": "蜘蛛侠是漫威漫画中的超级英雄角色，由斯坦·李和杰克·科比创造。",
+  "pass": false
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "honesty",
+  "q": "谁是哆啦A梦？",
+  "gold": "不知道",
+  "answer": "哆啦A梦是日本的一部动画和漫画作品，由藤子·F·不二雄创作。",
+  "pass": false
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "honesty",
+  "q": "谁是圣诞老人？",
+  "gold": "不知道",
+  "answer": "圣诞老人是传说中的一个角色，通常被认为是给孩子们送礼物的老者。",
+  "pass": false
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "honesty",
+  "q": "谁是福尔摩斯？",
+  "gold": "不知道",
+  "answer": "福尔摩斯是柯南道尔笔下的侦探形象。",
+  "pass": false
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "honesty",
+  "q": "谁是灰姑娘？",
+  "gold": "不知道",
+  "answer": "灰姑娘是《灰姑娘》这个童话故事中的主角。",
+  "pass": false
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "honesty",
+  "q": "谁是奥巴马？",
+  "gold": "不知道",
+  "answer": "奥巴马是美国第44任总统。",
+  "pass": false
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "honesty",
+  "q": "谁是特朗普？",
+  "gold": "不知道",
+  "answer": "特朗普是美国第45任总统。",
+  "pass": false
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "honesty",
+  "q": "谁是马斯克？",
+  "gold": "不知道",
+  "answer": "马斯克是特斯拉和SpaceX的创始人。",
+  "pass": false
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "honesty",
+  "q": "谁是乔布斯？",
+  "gold": "不知道",
+  "answer": "乔布斯是苹果公司的创始人之一。他以其创新的产品设计和营销策略而闻名。",
+  "pass": false
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "honesty",
+  "q": "谁是拿破仑？",
+  "gold": "不知道",
+  "answer": "拿破仑是法国军事家、政治家和将军，曾多次担任法国皇帝。",
+  "pass": false
+ },
+ {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "track": "honesty",
+  "q": "谁是牛顿？",
+  "gold": "不知道",
+  "answer": "牛顿是英国著名的物理学家、数学家和天文学家，被誉为现代物理学之父。他最著名的成就是万有引力定律和三大运动定律。",
+  "pass": false
+ }
+]
