@@ -1,4 +1,4 @@
-# classical-chinese-gpt
+# chinese-gpt-from-scratch
 
 Building a Chinese language model from scratch, by hand, to genuinely understand how these things work. It began as a laptop experiment and grew into a real GPT-2-scale model trained on China's classical literature and Wikipedia. Every stage is in this repo: from a 4-million-parameter toy that writes gibberish, to a 124-million-parameter model that writes coherent Chinese.
 
