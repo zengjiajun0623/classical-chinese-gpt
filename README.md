@@ -1,55 +1,81 @@
 # classical-chinese-gpt
 
-A hands-on project to understand how large language models are built, by training tiny ones from scratch on classical Chinese literature. It walks the full pretraining pipeline on a laptop: tokenize, train, watch it learn, then mix sources and steer the output style with control tokens.
+Building a Chinese language model from scratch, by hand, to genuinely understand how these things work. It began as a laptop experiment and grew into a real GPT-2-scale model trained on China's classical literature and Wikipedia. Every stage is in this repo: from a 4-million-parameter toy that writes gibberish, to a 124-million-parameter model that writes coherent Chinese.
+
+This is a learning project, not a frontier model. The goal was never to compete with the big models. It was to build the entire pipeline myself, tokenizer, pretraining, fine-tuning, and understand every piece along the way. If you are learning the same thing, everything you need to reproduce it is here.
+
+## The journey
+
+### Stage 1: the laptop toy (repo root)
+
+A character-level GPT trained on a Mac on the Four Great Classical Novels and more. It picks up the shape of Chinese (dialogue, character names, sentence rhythm), but at 4M parameters it is far too small to mean anything. It is perfect for *feeling* how tokenization, attention, and the training loop actually work.
+
+- `train_bigram.py`: the simplest possible baseline, predict the next character from the current one.
+- `train_gpt.py`: a real transformer (multi-head self-attention, stacked blocks) on the four novels.
+- `build_corpus2.py`, `train_tags.py`, `generate.py`: a nine-source corpus with per-author style tags, so you can summon a specific author's voice at generation time.
+- `build_sft.py`, `fine_tune.py`: supervised fine-tuning into a 问/答 chat format, the base-model-to-assistant leap in miniature.
+
+### Stage 2: the real model ([`cloud/`](cloud/))
+
+A ~124M-parameter GPT-2-scale model, trained from scratch on ~656M tokens of Chinese Wikipedia on a rented RTX 4090, then fine-tuned toward classical Chinese. This one writes genuinely coherent, grammatical Chinese. The full recipe is in [`cloud/README.md`](cloud/README.md).
 
 ## The corpus
 
-Simplified-Chinese text of nine public-domain works from Project Gutenberg, spanning three registers:
+Two kinds of text, for two jobs:
 
-- Ming-Qing vernacular novels: 红楼梦, 三国演义, 水浒传, 西游记, 儒林外史, 封神演义
-- Classical 文言: 聊斋志异
-- Modern vernacular: 鲁迅 (呐喊, 彷徨)
+- **Breadth (capability):** all of Chinese Wikipedia (~1 billion characters), so the model learns how language and the world generally work.
+- **Style:** nine public-domain classics from Project Gutenberg, across three registers:
+  - Ming-Qing vernacular novels: 红楼梦, 三国演义, 水浒传, 西游记, 儒林外史, 封神演义
+  - Classical 文言: 聊斋志异
+  - Modern vernacular: 鲁迅 (呐喊, 彷徨)
 
-About 4.4 million characters drawn from roughly 6,700 distinct characters. Character-level tokenization (no sub-word merges needed for Chinese).
+The toys normalize everything to simplified Chinese with OpenCC. The cloud model trains on raw (bilingual) Wikipedia and matches the prompt's script at generation with an OpenCC pass.
 
-## The scripts
+## Reproduce it
 
-- `train_bigram.py` is a minimal baseline that predicts the next character from only the current one. It shows the full training loop (guess, measure loss, adjust) with nothing hidden.
-- `train_gpt.py` is a small character-level GPT (multi-head self-attention, stacked transformer blocks) trained on the four core novels.
-- `build_corpus2.py` builds the training corpus from all nine sources, tagging every short passage with its source so the model can learn to condition on it. It writes `train.txt` and `val.txt`, splitting each source 90/10 so validation represents every register.
-- `train_tags.py` trains the GPT on the tagged corpus, with a fused-attention, GPU-resident data path for speed. Saves `model_tags.pt`.
-- `generate.py` loads the trained model and "summons" a style by seeding with a source tag, for example `=== 鲁迅 ===`. It uses temperature and tag-banning to keep the chosen style locked.
+### The laptop toys
 
-## Setup
+Requires Python 3 and PyTorch (Apple Silicon `mps`, or `cpu`).
 
-Requires Python 3 and PyTorch. The scripts use Apple Silicon's `mps` GPU backend; change the `device` line to `cpu` otherwise.
+```bash
+python3 -m pip install torch
+brew install opencc
+```
 
-    python3 -m pip install torch
-    brew install opencc
+Download the texts and convert them to simplified:
 
-Download the nine texts (traditional Chinese) and convert them to simplified:
+```bash
+curl -L https://www.gutenberg.org/cache/epub/24264/pg24264.txt -o hongloumeng.txt
+curl -L https://www.gutenberg.org/cache/epub/23950/pg23950.txt -o sanguo.txt
+curl -L https://www.gutenberg.org/cache/epub/23863/pg23863.txt -o shuihu.txt
+curl -L https://www.gutenberg.org/cache/epub/23962/pg23962.txt -o xiyouji.txt
+curl -L https://www.gutenberg.org/cache/epub/24032/pg24032.txt -o rulin.txt
+curl -L https://www.gutenberg.org/cache/epub/23910/pg23910.txt -o fengshen.txt
+curl -L https://www.gutenberg.org/cache/epub/51828/pg51828.txt -o liaozhai.txt
+curl -L https://www.gutenberg.org/cache/epub/27166/pg27166.txt -o nahan.txt
+curl -L https://www.gutenberg.org/cache/epub/24042/pg24042.txt -o panghuang.txt
+for f in hongloumeng sanguo shuihu xiyouji rulin fengshen liaozhai nahan panghuang; do
+    opencc -c t2s -i $f.txt -o ${f}_s.txt
+done
+```
 
-    curl -L https://www.gutenberg.org/cache/epub/24264/pg24264.txt -o hongloumeng.txt
-    curl -L https://www.gutenberg.org/cache/epub/23950/pg23950.txt -o sanguo.txt
-    curl -L https://www.gutenberg.org/cache/epub/23863/pg23863.txt -o shuihu.txt
-    curl -L https://www.gutenberg.org/cache/epub/23962/pg23962.txt -o xiyouji.txt
-    curl -L https://www.gutenberg.org/cache/epub/24032/pg24032.txt -o rulin.txt
-    curl -L https://www.gutenberg.org/cache/epub/23910/pg23910.txt -o fengshen.txt
-    curl -L https://www.gutenberg.org/cache/epub/51828/pg51828.txt -o liaozhai.txt
-    curl -L https://www.gutenberg.org/cache/epub/27166/pg27166.txt -o nahan.txt
-    curl -L https://www.gutenberg.org/cache/epub/24042/pg24042.txt -o panghuang.txt
+Then:
 
-    for f in hongloumeng sanguo shuihu xiyouji rulin fengshen liaozhai nahan panghuang; do
-        opencc -c t2s -i $f.txt -o ${f}_s.txt
-    done
+```bash
+python3 train_gpt.py       # the char-level transformer on the four novels
+python3 build_corpus2.py   # build the tagged multi-source corpus
+python3 train_tags.py      # train with per-source style conditioning
+python3 generate.py        # summon a style by its tag
+```
 
-## Run
+### The real model
 
-    python3 train_gpt.py       # the single-corpus transformer
-    python3 build_corpus2.py   # build the tagged multi-source corpus
-    python3 train_tags.py      # train with source conditioning
-    python3 generate.py        # summon a style by its tag
+See [`cloud/`](cloud/). It needs a CUDA GPU and `torch`, `datasets`, `tokenizers`.
+
+## What it taught me
+
+Every hard part of training a language model shows up here at small scale: why tokenization is the hidden foundation, what overfitting really looks like, how a badly built validation split can fake a catastrophe, why data (not compute) is the real ceiling on model size, what fine-tuning can and cannot fix, and why RLHF cannot rescue a base that was never capable. The models are tiny, but the lessons are exactly the ones the large labs run into.
 
 ## Notes
 
-Raw and converted text files, and trained model checkpoints, are not committed. Reproduce them with the steps above.
+Raw text (`*.txt`), tokenized data (`*.bin`), and model checkpoints (`*.pt`) are not committed, they are large and fully regenerable from the steps above. The trained tokenizer is included.
