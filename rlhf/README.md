@@ -39,3 +39,13 @@ Why? The reward was a shallow proxy. "Minimize name-collisions" is not the same 
 | `gen_3080.py` | sample from any checkpoint with a repetition penalty |
 
 All scripts load `gpt2_zh_classical.pt` (the Stage 2 fine-tuned model) and expect the tokenizer in `tok/`. They were run on Windows with `py -3.10`.
+
+## Bonus: turning it into a question-answering assistant
+
+A base model does not answer questions, it continues text. Ask it "谁是貂蝉？" and it just writes more novel. Two steps fix that.
+
+**Respond (`sft_instruct_3080.py`).** Instruction-tuning: fine-tune on `问：… 答：…` pairs, computing loss only on the answer and ending each with the stop token. After this the model recognizes a question, answers it, and halts. But it now answers *everything* by copying the nearest memorized answer, so out-of-set questions hallucinate (ask about a character it was not taught and it grabs someone else's description).
+
+**Be correct (`rag_sft_3080.py`, `rag_ask_3080.py`).** Retrieval-augmented generation. Keep a knowledge base of fact-cards (`knowledge.json`), retrieve the card for the entity in the question, and put it in front of the prompt: `参考：{card}\n问：{q}\n答：`. The model is fine-tuned to answer *from the card*. Ten characters were held entirely out of the answer-training and kept only as cards; the model answers them correctly anyway, by reading the retrieved card, which proves retrieval (not memory) is doing the work. When retrieval finds nothing, it was taught to say "我不知道" instead of bluffing.
+
+The point: knowledge lives in the editable knowledge base, not the weights. To teach it a new fact, add a card. No retraining. That is how real assistants stay current, and it is the only way a 124M model can be reliably correct, because it is far too small to store facts in its parameters.

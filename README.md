@@ -23,6 +23,8 @@ A ~124M-parameter GPT-2-scale model, trained from scratch on ~656M tokens of Chi
 
 Teaching the model *taste*, using DPO (the run-it-on-one-GPU form of RLHF) on a local RTX 3080. The goal was to stop the model mixing characters across novels, and a human gave the preferences. It worked, then plateaued, then hit a wall when the judging was automated. The full, honest story (including a negative result worth more than a win) is in [`rlhf/README.md`](rlhf/README.md).
 
+The same directory also has the **question-answering** step: instruction-tuning so the base model *responds* to questions instead of continuing text, then retrieval (RAG) so its answers are actually *correct*, then declining ("我不知道") instead of bluffing. Knowledge ends up in an editable knowledge base, not the weights, which is the only way a 124M model can be reliably correct. Details in [`rlhf/README.md`](rlhf/README.md).
+
 ## The corpus
 
 Two kinds of text, for two jobs:
