@@ -95,3 +95,16 @@ Every hard part of training a language model shows up here at small scale: why t
 ## Notes
 
 Raw text (`*.txt`), tokenized data (`*.bin`), and model checkpoints (`*.pt`) are not committed, they are large and fully regenerable from the steps above. The trained tokenizer is included.
+
+## Week 2: the same stack on a real base (Qwen2.5-1.5B)
+
+The from-scratch model proved the pipeline; week 2 reran it the way practitioners do, adapting a capable open base on one RTX 3080. Eval v2 (strict golds, invented-name honesty, sampled style):
+
+| model | facts /20 | honesty /10 | style /16 |
+|---|---|---|---|
+| qwen-base | 15 | 0 | 13 |
+| + classical LoRA (4 min, 0.28% params) | 17 | 0 | 13 |
+| + DPO on 46 human judgments | 16 | 0 | 14 |
+| + on-policy RLAIF | 14 | 0 | 14 |
+
+What it taught: capability comes from the base and fine-tuning only steers it; LoRA added style with no forgetting; preference tuning improved style while taxing factual QA (the alignment tax, measured); every variant hallucinates about invented people (honesty 0/10), because helpfulness training runs deeper than any of our tuning; and on-policy preference pairs (9 of them) fixed a world-bleed that 119 stale off-policy pairs could not. Scripts in `rlhf/qwen_*.py`, eval in `rlhf/eval_v2_day5.py`.
